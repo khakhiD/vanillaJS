@@ -1,7 +1,9 @@
 const todoForm = document.getElementById("todo-form");
 const todoInput = todoForm.querySelector("input");
 const todoList = document.getElementById("todo-list");
+
 const TODOS_KEY = "todos";
+
 let todos = [];
 
 function saveTodos(){
@@ -10,8 +12,9 @@ function saveTodos(){
 
 function deleteTodo(e){
     const li = e.target.parentElement;
-    const id = li.id;
     li.remove();
+    todos = todos.filter((todo) => todo.id !== parseInt(li.id));
+    saveTodos();
 }
 
 function paintTodo(newTodo){
@@ -47,5 +50,5 @@ const savedTodos = localStorage.getItem(TODOS_KEY);
 if (savedTodos !== null) {
     const parsedTodos = JSON.parse(savedTodos);
     todos = parsedTodos;
-    parsedTodos.forEach(paintTodo)
+    parsedTodos.forEach(paintTodo);
 }
