@@ -1,4 +1,4 @@
-const API_KEY = "db1611a1b24adb1929a97532f7872dde";
+const API_KEY = "db1611a1b24adb1929a97532f7872dde"; // 실습 종료 후 API Key는 비활성화되었습니다.
 
 function onGeoSuccess(position) {
     const lat = position.coords.latitude;
